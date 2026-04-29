@@ -56,7 +56,7 @@ jobs:
         run: |
           mkdir -p public/extent-reports
           cp -R Reports/reports.html public/extent-reports/
-          cp -R screenShots public/extent-reports/
+          cp -R ScreenShots public/extent-reports/
           ls -l public/extent-reports
 
       - name: Deploy to GitHub Pages
