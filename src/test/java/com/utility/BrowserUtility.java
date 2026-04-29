@@ -2,6 +2,8 @@ package com.utility;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +18,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import com.ui.constants.Browser;
+
+import freemarker.template.SimpleDate;
 
 public abstract class BrowserUtility {
 
@@ -108,7 +112,9 @@ public abstract class BrowserUtility {
 	public String getScreenShot(String name) {
 		TakesScreenshot ts = (TakesScreenshot) driver.get();
 		File scource = ts.getScreenshotAs(OutputType.FILE);
-		String fileaPath="."+File.separator+"SreenShots"+File.separator+name+".png";
+		SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");
+		String timeStamp = format.format(new Date());
+		String fileaPath = "." + File.separator + "SreenShots" + File.separator + name + " - " + timeStamp + ".png";
 		File path = new File(fileaPath);
 		try {
 			FileUtils.copyFile(scource, path);
