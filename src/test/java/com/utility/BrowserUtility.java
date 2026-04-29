@@ -114,7 +114,7 @@ public abstract class BrowserUtility {
 		File scource = ts.getScreenshotAs(OutputType.FILE);
 		SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");
 		String timeStamp = format.format(new Date());
-		String fileaPath = "." + File.separator + "SreenShots" + File.separator + name + " - " + timeStamp + ".png";
+		String fileaPath = "." + File.separator + "ScreenShots" + File.separator + name + " - " + timeStamp + ".png";
 		File path = new File(fileaPath);
 		try {
 			FileUtils.copyFile(scource, path);
