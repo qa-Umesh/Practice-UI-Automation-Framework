@@ -13,7 +13,7 @@ public class ExtentReportUtlity {
 
 	public static void setupExtendSparkReport(String reportName) {
 		ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(
-				System.getProperty("user.dir")  + "//Reports//" + File.separator + reportName);
+				System.getProperty("user.dir") + "//Reports//" + reportName);
 		extentReport = new ExtentReports();
 		extentReport.attachReporter(extentSparkReport);
 
