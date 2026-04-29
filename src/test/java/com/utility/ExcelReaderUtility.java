@@ -17,8 +17,7 @@ import com.ui.pojo.User;
 public class ExcelReaderUtility {
 
 	public static Iterator<User> loginExcelReader(String fileName) {
-		File loginData = new File(
-				System.getProperty("user.dir") + File.separator + "testData" + File.separator + fileName);
+		File loginData = new File(System.getProperty("user.dir") + "/testData/" + fileName);
 
 		XSSFWorkbook workBook;
 		XSSFSheet sheet;
@@ -26,7 +25,7 @@ public class ExcelReaderUtility {
 		User user;
 		List<User> userList = null;
 		Iterator<Row> iterator;
-		Cell email,password;
+		Cell email, password;
 
 		try {
 			workBook = new XSSFWorkbook(loginData);
@@ -36,7 +35,7 @@ public class ExcelReaderUtility {
 			userList = new ArrayList<User>();
 			while (iterator.hasNext()) {
 				row = iterator.next();
-			    email = row.getCell(0);
+				email = row.getCell(0);
 				password = row.getCell(1);
 				user = new User(email.toString(), password.toString());
 				userList.add(user);
